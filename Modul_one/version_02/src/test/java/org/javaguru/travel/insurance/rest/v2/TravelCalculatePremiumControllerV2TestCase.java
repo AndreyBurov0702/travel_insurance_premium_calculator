@@ -27,25 +27,22 @@ public abstract class TravelCalculatePremiumControllerV2TestCase {
     private static final String BASE_URL = "/insurance/travel/api/v2/";
 
 
-    protected abstract String getTestCaseFolderName();
 
-    protected void executeAndCompare() throws Exception {
+    protected void executeAndCompare(String testCaseFolderName) throws Exception {
         executeAndCompare(
-                "rest/v2/" + getTestCaseFolderName() + "/request.json",
-                "rest/v2/" + getTestCaseFolderName() + "/response.json",
+                "rest/v2/" + testCaseFolderName + "/request.json",
+                "rest/v2/" + testCaseFolderName + "/response.json",
                 false
         );
     }
-    protected void executeAndCompare(boolean ignoreUUIDValue) throws Exception {
+    protected void executeAndCompare(String testCaseFolderName,
+                                     boolean ignoreUUIDValue) throws Exception {
         executeAndCompare(
-                "rest/v2/" + getTestCaseFolderName() + "/request.json",
-                "rest/v2/" + getTestCaseFolderName() + "/response.json",
+                "rest/v2/" + testCaseFolderName + "/request.json",
+                "rest/v2/" + testCaseFolderName + "/response.json",
                 ignoreUUIDValue
         );
     }
-
-
-
     protected void executeAndCompare(String jsonRequestFilePath,
                                      String jsonResponseFilePath,
                                      boolean ignoreUUIDValue) throws Exception {
