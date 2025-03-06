@@ -2,6 +2,7 @@ package org.javaguru.travel.insurance.core.underwriting.calculators.medical;
 
 import org.javaguru.travel.insurance.core.api.dto.PersonDTO;
 import org.javaguru.travel.insurance.core.domain.TMAgeCoefficient;
+import org.javaguru.travel.insurance.core.repositories.TMAgeCoefficientRepository;
 import org.javaguru.travel.insurance.core.util.DateTimeUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

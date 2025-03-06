@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.javaguru.travel.insurance.core.api.dto.PersonDTO;
 import org.javaguru.travel.insurance.core.domain.TCTravelCostCoefficient;
+import org.javaguru.travel.insurance.core.repositories.TCTravelCostCoefficientRepository;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;

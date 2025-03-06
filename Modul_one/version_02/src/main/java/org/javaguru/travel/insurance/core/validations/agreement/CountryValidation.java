@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import org.javaguru.travel.insurance.core.api.dto.AgreementDTO;
 import org.javaguru.travel.insurance.core.api.dto.ValidationErrorDTO;
+import org.javaguru.travel.insurance.core.repositories.ClassifierValueRepository;
 import org.javaguru.travel.insurance.core.util.Placeholder;
 import org.javaguru.travel.insurance.core.validations.ValidationErrorFactory;
 import org.springframework.stereotype.Component;
