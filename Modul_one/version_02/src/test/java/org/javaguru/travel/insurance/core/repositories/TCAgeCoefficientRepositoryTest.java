@@ -1,7 +1,6 @@
 package org.javaguru.travel.insurance.core.repositories;
 
 import org.javaguru.travel.insurance.core.domain.TCAgeCoefficient;
-import org.javaguru.travel.insurance.core.domain.TMAgeCoefficient;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

@@ -1,7 +1,6 @@
 package org.javaguru.travel.insurance.core.repositories;
 
 import org.javaguru.travel.insurance.core.domain.TCCountrySafetyRatingCoefficient;
-import org.javaguru.travel.insurance.core.domain.TMCountryDefaultDayRate;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

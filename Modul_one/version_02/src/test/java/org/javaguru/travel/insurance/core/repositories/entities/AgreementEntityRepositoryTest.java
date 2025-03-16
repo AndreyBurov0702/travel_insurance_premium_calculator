@@ -8,10 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.text.ParseException;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,24 +30,27 @@ class AgreementEntityRepositoryTest {
     public void injectedRepositoryAreNotNull() {
         assertNotNull(repository);
     }
+
     @Test
-    @DisplayName("Test: Can save and find AgreementEntity by country and dates")
-    public void shouldSaveAndFindAgreementEntity() {
+    @DisplayName("Test: Can save and find AgreementEntity by UUID")
+    public void shouldSaveAndFindAgreementEntityByUuid() {
+        var uuid = UUID.randomUUID().toString();
         var country = "JAPAN";
         var dateFrom = createDate("29.05.2050");
         var dateTo = createDate("29.05.2030");
         var premium = BigDecimal.valueOf(1000);
 
         AgreementEntity agreementEntity = new AgreementEntity();
-        agreementEntity.setUuid(UUID.randomUUID().toString());
+        agreementEntity.setUuid(uuid);
         agreementEntity.setAgreementDateFrom(dateFrom);
         agreementEntity.setAgreementDateTo(dateTo);
         agreementEntity.setCountry(country);
         agreementEntity.setAgreementPremium(premium);
         repository.save(agreementEntity);
 
-        Optional<AgreementEntity> foundAgreement = repository.findById(agreementEntity.getId());
+        Optional<AgreementEntity> foundAgreement = repository.findByUuid(uuid);
         assertTrue(foundAgreement.isPresent());
+        assertEquals(foundAgreement.get().getUuid(), uuid);
         assertEquals(foundAgreement.get().getCountry(), country);
         assertEquals(foundAgreement.get().getAgreementDateFrom(), dateFrom);
         assertEquals(foundAgreement.get().getAgreementDateTo(), dateTo);
@@ -54,10 +58,35 @@ class AgreementEntityRepositoryTest {
     }
 
     @Test
-    @DisplayName("Test: Can't find AgreementEntity with non-existing ID")
-    public void shouldNotFindAgreementEntityWithFakeId() {
-        Optional<AgreementEntity> foundAgreement = repository.findById(9999L);
+    @DisplayName("Test: Can't find AgreementEntity with non-existing UUID")
+    public void shouldNotFindAgreementEntityWithFakeUuid() {
+        Optional<AgreementEntity> foundAgreement = repository.findByUuid("fake-uuid");
         assertTrue(foundAgreement.isEmpty());
+    }
+
+    @Test
+    @DisplayName("Test: Get all AgreementEntity UUIDs")
+    public void shouldGetAllAgreementUuids() {
+        AgreementEntity agreement1 = new AgreementEntity();
+        agreement1.setUuid(UUID.randomUUID().toString());
+        agreement1.setCountry("JAPAN");
+        agreement1.setAgreementDateFrom(createDate("01.01.2040"));
+        agreement1.setAgreementDateTo(createDate("01.01.2050"));
+        agreement1.setAgreementPremium(BigDecimal.valueOf(1500));
+        repository.save(agreement1);
+
+        AgreementEntity agreement2 = new AgreementEntity();
+        agreement2.setUuid(UUID.randomUUID().toString());
+        agreement2.setCountry("SPAIN");
+        agreement2.setAgreementDateFrom(createDate("01.02.2040"));
+        agreement2.setAgreementDateTo(createDate("01.02.2050"));
+        agreement2.setAgreementPremium(BigDecimal.valueOf(2000));
+        repository.save(agreement2);
+
+        List<String> uuids = repository.getNotExportedAgreementUuids();
+        assertNotNull(uuids);
+        assertTrue(uuids.contains(agreement1.getUuid()));
+        assertTrue(uuids.contains(agreement2.getUuid()));
     }
 
     private Date createDate(String dateStr) {

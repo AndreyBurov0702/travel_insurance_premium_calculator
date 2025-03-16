@@ -1,6 +1,5 @@
 package org.javaguru.travel.insurance.core.repositories.entities;
 
-import org.javaguru.travel.insurance.core.domain.entities.AgreementEntity;
 import org.javaguru.travel.insurance.core.domain.entities.PersonEntity;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

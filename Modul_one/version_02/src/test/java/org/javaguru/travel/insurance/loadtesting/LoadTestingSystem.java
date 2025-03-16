@@ -6,11 +6,11 @@ import java.util.List;
 class LoadTestingSystem {
 
     public static void main(String[] args) {
-        new LoadTestingSystem().executeForAMinute(3, 10000);
+        new LoadTestingSystem().executeForAMinute(2, 100);
     }
 
     public void executeForAMinute(int parallelThreadCount, int requestCount) {
-        long intervalBetweenRequestsInMillis = 10000L / requestCount;
+        long intervalBetweenRequestsInMillis = 100L / requestCount;
 
         LoadTestingStatistic statisticV1 = new LoadTestingStatistic();
 

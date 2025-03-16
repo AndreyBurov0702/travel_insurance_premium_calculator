@@ -22,6 +22,10 @@ dependencies {
 	implementation('com.fasterxml.jackson.core:jackson-core:2.14.2')
 	implementation('com.google.guava:guava:31.0.1-jre')
 
+//	не используются у ментора, нужны для работы jobs 212 task
+	implementation("jakarta.xml.bind:jakarta.xml.bind-api:4.0.0")
+	implementation("org.glassfish.jaxb:jaxb-runtime:4.0.0")
+
 	compileOnly('org.projectlombok:lombok:1.18.32')
 	annotationProcessor('org.projectlombok:lombok:1.18.32')
 
