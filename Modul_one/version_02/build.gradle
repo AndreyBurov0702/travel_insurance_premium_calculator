@@ -1,6 +1,11 @@
 plugins {
 	id 'org.springframework.boot' version "3.2.5"
-	id 'maven-publish'
+	id 'com.palantir.docker' version '0.35.0'
+	id 'checkstyle'
+}
+
+checkstyle {
+	configFile = 'config/checkstyle/checkstyle.xml' as File
 }
 
 dependencies {
@@ -16,6 +21,8 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-cache:3.2.5')
 
 	implementation('org.springframework.boot:spring-boot-starter-web:3.2.5')
+
+	implementation('org.springframework.boot:spring-boot-starter-validation:3.2.5')
 
 	implementation('org.springframework.boot:spring-boot-starter-thymeleaf:3.2.5')
 
@@ -54,33 +61,14 @@ bootJar {
 	archiveVersion = '1.0.2'
 }
 
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			// Identify the artifact
-			artifact bootJar  // This refers to the Spring Boot's bootJar task
+docker {
+	dependsOn bootJar
+	name "insurance-calculator:1.0.2"
+	files 'build/libs/insurance-calculator-1.0.2.jar'
+	files 'wait-for-it.sh'
+	buildArgs(['JAR_FILE': "insurance-calculator-1.0.2.jar"])
+}
 
-			// Project coordinates
-			groupId = 'org.javaguru'
-			artifactId = 'insurance-calculator'
-			version = '1.0.2'
-
-			// Add other metadata as needed
-			pom {
-				name = 'Insurance Calculator Application'
-				description = 'Application to calculate travel insurance premium'
-				licenses {
-					license {
-						name = 'The Apache License, Version 2.0'
-						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-					}
-				}
-			}
-		}
-	}
-
-	// Configure the repository location (local Maven repository)
-	repositories {
-		mavenLocal()
-	}
+tasks.named('dockerPrepare') {
+	dependsOn tasks.named('bootJar')
 }

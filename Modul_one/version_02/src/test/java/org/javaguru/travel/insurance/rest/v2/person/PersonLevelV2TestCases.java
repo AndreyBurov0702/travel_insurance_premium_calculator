@@ -103,4 +103,65 @@ public class PersonLevelV2TestCases extends TravelCalculatePremiumControllerV2Te
     public void check_ERROR_CODE_16_two_persons_EMPTY() throws Exception {
         executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_16_two_person_code_is_empty");
     }
+
+    @Test
+    @DisplayName("ERROR_CODE_21 one person personCode invalid format")
+    public void check_ERROR_CODE_21_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_21_person_code_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_21 two person personCode invalid format")
+    public void check_ERROR_CODE_21_two_person_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_21_two_person_code_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_22 one person personFirstName invalid format")
+    public void check_ERROR_CODE_22_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_22_personFirstName_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_22 two person personFirstName invalid format")
+    public void check_ERROR_CODE_22_two_personFirstName_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_22_two_personFirstName_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_23 one person personLastName invalid format")
+    public void check_ERROR_CODE_23_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_23_personLastName_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_23 two person personLastName invalid format")
+    public void check_ERROR_CODE_23_two_personLastName_invalid_format() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_23_two_personLastName_invalid_format");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 one person personFirstName is too long")
+    public void check_ERROR_CODE_24_personFirstName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_personFirstName_is_too_long");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 one person personLastName is too long")
+    public void check_ERROR_CODE_24_personLastName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_personLastName_is_too_long");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 two person personFirstName is too long")
+    public void check_ERROR_CODE_24_two_personFirstName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_two_personFirstName_is_too_long");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 two person personLastName is too long")
+    public void check_ERROR_CODE_24_two_personLastName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_two_personLastName_is_too_long");
+    }
+
 }

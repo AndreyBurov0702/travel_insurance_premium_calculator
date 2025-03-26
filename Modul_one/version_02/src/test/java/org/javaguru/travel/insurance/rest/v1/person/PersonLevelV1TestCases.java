@@ -73,4 +73,17 @@ public class PersonLevelV1TestCases extends TravelCalculatePremiumControllerV1Te
     public void check_ERROR_CODE_23_InvalidFormat() throws Exception {
         executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_23_personLastName_invalid_format");
     }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 personFirstName is too long")
+    public void check_ERROR_CODE_24_personFirstName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_personFirstName_is_too_long");
+    }
+
+    @Test
+    @DisplayName("ERROR_CODE_24 personLastName is too long")
+    public void check_ERROR_CODE_24_personLastName_is_too_long() throws Exception {
+        executeAndCompare(TEST_FILE_BASE_FOLDER + "/ERROR_CODE_24_personLastName_is_too_long");
+    }
+
 }

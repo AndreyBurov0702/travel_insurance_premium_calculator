@@ -1,5 +1,6 @@
 package org.javaguru.travel.insurance.core.api.dto;
 
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -13,8 +14,10 @@ import java.util.List;
 @AllArgsConstructor
 public class PersonDTO {
 
+    @Size(max = 200)
     private String personFirstName;
 
+    @Size(max = 200)
     private String personLastName;
 
     private String personCode;
