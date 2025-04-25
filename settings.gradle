@@ -1,4 +1,9 @@
 include 'Modul_one'
-include 'Modul_one:version_02'
-
+include 'Modul_one:version_01'
+include 'Modul_one:insurance-calculator-app'
+include 'Modul_one:doc-generator-app'
+include 'Modul_one:black-list-app'
+include 'Modul_one:elk:filebeat'
+include 'Modul_one:elk:logstash'
+include 'Modul_one:elk:metricbeat'
 

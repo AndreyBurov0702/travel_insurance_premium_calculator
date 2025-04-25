@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
+
+    <changeSet author="internship" id="3">
+        <insert tableName="black_listed_persons">
+            <column name="person_first_name" value="Petja"/>
+            <column name="person_last_name" value="Pupkin"/>
+            <column name="person_code" value="654321-54321"/>
+        </insert>
+        <insert tableName="black_listed_persons">
+            <column name="person_first_name" value="Andrey"/>
+            <column name="person_last_name" value="Burov"/>
+            <column name="person_code" value="654322-54322"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
