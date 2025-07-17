@@ -49,7 +49,7 @@ public class AgreementDateToValidationIntegrationTest {
     @Test
     public void shouldReturnErrorWhenDateToIsInThePast() {
         AgreementDTO agreement = AgreementDTO.builder()
-                .agreementDateFrom(createDate("29.05.2025"))
+                .agreementDateFrom(createDate("29.05.2027"))
                 .agreementDateTo(createDate("01.01.2020"))
                 .country("SPAIN")
                 .selectedRisks(List.of("TRAVEL_MEDICAL"))
